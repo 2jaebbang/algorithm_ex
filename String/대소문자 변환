@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class 대소문자_변환 {
+   public static void main(String[] args) {
+       Scanner in=new Scanner(System.in);
+       String inputStr = in.next();
+       String newStr = "";
+       for(int i=0; i<inputStr.length(); i++){
+
+               char inputChar = inputStr.charAt(i);
+               if(Character.isUpperCase(inputChar)){
+                   newStr+=Character.toLowerCase(inputChar);
+           } else{
+                   newStr+=Character.toUpperCase(inputChar);
+               }
+       }
+       System.out.println(newStr);
+   }
+}
