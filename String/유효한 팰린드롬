@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class 유효한_팰린드롬 {
+    public static void main(String[] args) {
+        String result = "";
+        Scanner in=new Scanner(System.in);
+        String inputStr = in.nextLine();
+        inputStr = inputStr.toUpperCase().replaceAll("[^A-Z]","");
+        String temp = new StringBuilder(inputStr).reverse().toString();
+        if(temp.equals(inputStr))
+            result = "YES";
+        else result = "NO";
+        System.out.println(result);
+    }
+}
