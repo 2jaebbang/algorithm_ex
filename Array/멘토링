@@ -13,18 +13,18 @@ public class Main {
         }
 
         int answer = 0;
-        for(int i=1; i<=n; i++){  //mento가 될 학생의 등수
-            for(int j=1; j<=n; j++){  //mentee가 될 학생의 등수
+        for(int i=1; i<=n; i++){  //mento가 될 학생번호
+            for(int j=1; j<=n; j++){  //mentee가 될 학생번호
                 boolean state = true;
                 for(int k=0; k<m; k++){
-                    int mento=0, mentee=0;  //멘토 멘티 학생 번호
+                    int mento=0, mentee=0;  //멘토 멘티 등수
                    for(int l=0; l<n; l++){
-                        if(arr[k][l] == i)   //멘토의 등수
+                        if(arr[k][l] == i)   //멘토의 번호
                             mento = l;
-                        if(arr[k][l] == j)    //멘티의 등수
+                        if(arr[k][l] == j)    //멘티의 번호
                             mentee = l;
                     }
-                    if(mento >= mentee){
+                    if(mento >= mentee){   //멘토 등수가 멘티보다 낮으면
                         state = false;
                         break;
                     }
