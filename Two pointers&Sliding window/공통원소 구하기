@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class 공통원소_구하기 {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        Scanner sc=new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int[] arr1 = new int[n1];
+        for(int i=0; i<n1; i++) {
+            arr1[i] = sc.nextInt();
+        }
+
+        int n2 = sc.nextInt();
+        int[] arr2 = new int[n2];
+        for(int i=0; i<n2; i++){
+            arr2[i] = sc.nextInt();
+        }
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        int cnt1=0, cnt2=0;
+        while(cnt1 < n1 && cnt2 < n2) {
+            if (arr1[cnt1] == arr2[cnt2]) {
+                sb.append(arr1[cnt1++]+" ");
+                cnt2++;
+            } else if (arr1[cnt1] < arr2[cnt2])
+                cnt1++;
+            else cnt2++;
+        }
+        System.out.println(sb);
+    }
+}
