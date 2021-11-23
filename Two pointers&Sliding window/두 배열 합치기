@@ -1,34 +1,34 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class 두_배열_합치기 {
+public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        //ArrayList<Integer> arrayList = new ArrayList<>();
         Scanner sc=new Scanner(System.in);
         int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
         int[] arr1 = new int[n1];
-        for(int i=0; i<n1; i++){
+        for(int i=0; i<n1; i++) {
             arr1[i] = sc.nextInt();
         }
-        int n2 = sc.nextInt();
         int[] arr2 = new int[n2];
         for(int i=0; i<n2; i++){
             arr2[i] = sc.nextInt();
         }
 
+        StringBuilder sb = new StringBuilder();
         int cnt1=0, cnt2=0;
         while(cnt1<n1 && cnt2<n2){
             if(arr1[cnt1] < arr2[cnt2]){
-                arrayList.add(arr1[cnt1++]);
+                sb.append(arr1[cnt1++]+" ");
             } else
-                arrayList.add(arr2[cnt2++]);
+                sb.append(arr2[cnt2++]+" ");
         }
         while(cnt1<n1)
-            arrayList.add(arr1[cnt1++]);
+            sb.append(arr1[cnt1++]+" ");
         while(cnt2<n2)
-            arrayList.add(arr2[cnt2++]);
+            sb.append(arr2[cnt2++]+" ");
 
-        for(int x: arrayList)
-            System.out.print(x+" ");
+            System.out.println(sb);
     }
 }
