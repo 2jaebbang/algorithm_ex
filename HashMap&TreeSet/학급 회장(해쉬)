@@ -1,0 +1,26 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class 학급_회장 {
+    public static void main(String[] args) {
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String str = sc.next();
+
+        for(char x: str.toCharArray()){
+            hashMap.put(x,hashMap.getOrDefault(x,0)+1);
+        }
+
+        int max= Integer.MIN_VALUE;
+        char answer = ' ';
+        for(char key: hashMap.keySet()){
+            if(max< hashMap.get(key)){
+                max = hashMap.get(key);
+                answer = key;
+            }
+        }
+        System.out.println(answer);
+    }
+}
