@@ -1,0 +1,29 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class 아나그램 {
+    public static void main(String[] args) {
+        HashMap<Character, Integer> hashMap1 = new HashMap<>();
+        HashMap<Character, Integer> hashMap2 = new HashMap<>();
+
+        String answer = "YES";
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.next();
+        String str2 = sc.next();
+
+        for(char x: str1.toCharArray()){
+            hashMap1.put(x,hashMap1.getOrDefault(x,0)+1);
+        }
+        for(char x: str2.toCharArray()){
+            hashMap2.put(x,hashMap2.getOrDefault(x,0)+1);
+        }
+
+        for(char key: hashMap1.keySet()){
+            if(hashMap1.get(key) != hashMap2.get(key)){
+                answer = "NO";
+                break;
+            }
+        }
+        System.out.println(answer);
+    }
+}
