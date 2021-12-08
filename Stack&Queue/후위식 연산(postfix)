@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class 후위식_연산 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n = sc.next();
+
+        Stack<Integer> stack = new Stack<>();
+        int lt = 0;
+        int rt = 0;
+        for(char x: n.toCharArray()){
+            if(Character.isDigit(x)) stack.push(x-48);
+            else {
+                rt = stack.pop();
+                lt = stack.pop();
+                if(x == '+') stack.push(lt+rt);
+                else if(x == '-') stack.push(lt-rt);
+                else if(x == '*') stack.push(lt*rt);
+                else if(x == '/') stack.push(lt/rt);
+            }
+        }
+        System.out.println(stack.pop());
+    }
+}
