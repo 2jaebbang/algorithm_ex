@@ -1,0 +1,44 @@
+import java.util.*;
+
+class Patient {
+    int index;
+    int priority;
+
+    public Patient(int index, int priority){
+        this.index = index;
+        this.priority = priority;
+    }
+}
+
+public class 응급실 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        Queue<Patient> queue = new LinkedList<>();
+
+        for(int i=0; i<n; i++){
+            int priority = sc.nextInt();
+            queue.offer(new Patient(i, priority));
+        }
+
+        int cnt = 1;
+        while(!queue.isEmpty()){
+            Patient temp = queue.poll();
+            for(Patient x: queue) {
+                if (x.priority > temp.priority) {
+                    queue.offer(temp);
+                    temp = null;
+                    break;
+                }
+            }
+                if(temp!=null){
+                    if(temp.index == k){
+                        System.out.println(cnt);
+                        break;
+                    }
+                    else cnt++;
+                }
+            }
+        }
+    }
