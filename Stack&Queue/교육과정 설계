@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class 교육과정_설계 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n = sc.next();
+        String k = sc.next();
+        Queue<Character> queue = new LinkedList<>();
+
+
+        for(char x: n.toCharArray()){
+            queue.offer(x);
+        }
+
+        for(char x: k.toCharArray()){
+           if(queue.contains(x))
+               if(x!=queue.poll()){
+                   System.out.println("NO");
+                   return;
+            }
+        }
+        if(!queue.isEmpty())
+            System.out.println("NO");
+        else
+            System.out.println("YES");
+    }
+}
