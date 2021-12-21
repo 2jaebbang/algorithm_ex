@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class 크레인_인형뽑기 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int cnt=  0;
+        Stack<Integer> stack = new Stack<>();
+        int[][]board = new int[n][n];
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                board[i][j] = sc.nextInt();
+            }
+        }
+
+        int m = sc.nextInt();
+        int[] moves = new int[m];
+        for(int i=0; i<moves.length; i++){
+            moves[i] = sc.nextInt();
+        }
+
+        for(int i=0; i<moves.length; i++){
+            int move = moves[i];
+            for(int j=0; j<board.length; j++){
+                if(board[j][move-1] != 0){
+                    if(!stack.empty() && stack.peek() == board[j][move-1]) {
+                        stack.pop();
+                        cnt+=2;
+                    } else
+                        stack.push(board[j][moves[i]-1]);
+                    board[j][move-1] = 0;
+                    break;
+                }
+            }
+        }
+        System.out.println(cnt);
+    }
+}
